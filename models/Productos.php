@@ -34,21 +34,15 @@ class Productos extends Model
 							($categoriaid, '$nombrep', $cantidad, $precio) ");
 	}
 
-	public function editarProducto($nombrep,$categoriaid, $nombrepn, $cantidad, $precio)
+	public function editarProducto($productoid,$nombrep,$categoriaid, $cantidad, $precio)
 	{
-		echo "esto es nombrep "; var_dump($nombrep);
-		echo "esto es categoriaid "; var_dump($categoriaid);
-		echo "esto es nombrepn "; var_dump($nombrepn);
-		echo "esto es cantidad "; var_dump($cantidad);
-		echo "esto es precioS "; var_dump($precio);
-		die();
-		
+
 		if (!ctype_digit($categoriaid)) die("El id no es un numero entero");
 		if ($categoriaid < 1) die("el id tiene que ser mayor a 1");
 
 		if (strlen($nombrep) < 1) die("error2 nombre producto menor a 1");
-		$nombrep = substr($nombrep, 0, 30);
-		$nombrep = mysqli_escape_string($this->db, $nombrep);
+		// $nombrep = substr($nombrep, 0, 30);
+		// $nombrep = mysqli_escape_string($this->db, $nombrep);
 
 		if (!ctype_digit($cantidad)) die("la cantidad no es un numero");
 		if ($cantidad <= 0 || $cantidad >= 10000) die("La cantidad esta fuera de rango 0< 10000");
@@ -56,10 +50,6 @@ class Productos extends Model
 		if (!is_numeric($precio)) die("el precio no es un numero valido");
 		if ($cantidad <= 0 || $cantidad >= 10000) die("El precio esta fuera de rango 0< 20000");
 
-		$this->db->query("INSERT INTO productos
-		                    (categoria_id, nombre_producto, cantidad, precio) VALUES
-							($categoriaid, '$nombrep', $cantidad, $precio) ");
-		
 		$this->db->query("UPDATE productos
                           SET categoria_id = '$categoriaid', nombre_producto = '$nombrep', cantidad = '$cantidad', precio = '$precio'
                           WHERE producto_id = ($productoid) ");

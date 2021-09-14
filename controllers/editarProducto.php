@@ -20,7 +20,7 @@ if (isset($_POST['categoria'])) {
 
     $mp = new Productos();
 
-    $mp->editarProducto($_POST['nombre-producto'],$_POST['categoria'],$_POST['nombre-producto-nuevo'], $_POST['cantidad'], $_POST['precio']);
+    $mp->editarProducto($_POST['productoid'],$_POST['nombre-producto'],$_POST['categoria'], $_POST['cantidad'], $_POST['precio']);
 
     $v = new EditarProductoOk();
 } else {

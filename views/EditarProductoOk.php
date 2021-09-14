@@ -1,5 +1,5 @@
 <?php
 
-class AditarProductoOk extends View
+class EditarProductoOk extends View
 {
 }

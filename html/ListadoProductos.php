@@ -61,8 +61,6 @@
 	<a href="../controllers/altaProducto.php">Agregar producto</a>
 	<br><br>
 	<a href="../controllers/eliminarProducto.php">Eliminar producto</a>
-	<br><br>
-	<a href="../controllers/editarProducto.php">Editar producto</a>
 
 </body>
 
