@@ -2,9 +2,12 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
 	<title> Listado usuarios de la empresa</title>
 
 	<style type="text/css">
@@ -54,7 +57,8 @@
 	<a href="../controllers/eliminarUsuario.php">Eliminar Usuario</a>
 	<br /><br />
 	<a href="../controllers/Inicio.php">Volver</a>
-
+	
+	<script> src="js/bootstrap.js"</script>
 </body>
 
 </html>

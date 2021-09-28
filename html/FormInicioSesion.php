@@ -6,9 +6,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <title>
         Inicio sesion usuario
     </title>
@@ -23,6 +26,8 @@
         <br />
         <input type="submit" value="Iniciar sesion" />
     </form>
+
+    <script> src="js/bootstrap.js"</script>
 </body>
 
 <!-- <a href="logout.php">Cerrar sesion </a> -->

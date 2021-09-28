@@ -5,9 +5,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
 	<title>
 		Listado de productos
 	</title>
@@ -61,6 +64,8 @@
 	<a href="../controllers/altaProducto.php">Agregar producto</a>
 	<br><br>
 	<a href="../controllers/eliminarProducto.php">Eliminar producto</a>
+
+	<script> src="js/bootstrap.js"</script>
 
 </body>
 

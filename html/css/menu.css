@@ -1,0 +1,27 @@
+#titulo-menu {
+    color:black;
+    background-color: #FF8129; 
+    padding:20px;
+    text-align: center;
+}
+
+.menu-vertical{  
+    width: 300 px; 
+}
+
+.menu-vertical a{
+    background-color: #FFA129; 
+    color: black; 
+    padding:30px; 
+    text-decoration: none; 
+    list-style-type: none;
+    display: block;
+    font-size: 25px;
+    font-weight:bold;
+    text-align: center;
+}
+
+
+.menu-vertical a:hover{
+    background-color: #FFC829;
+}

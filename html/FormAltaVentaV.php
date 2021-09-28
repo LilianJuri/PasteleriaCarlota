@@ -3,9 +3,12 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <title>
         Alta venta y detalle de venta
     </title>
@@ -20,13 +23,13 @@
     <form action="" method="POST">
 
         <label for="fecha">Dia: </label>
-        <input type="text" name="dia" id="d">
+        <input type="text" name="dia" id="d" value= <?= date("d")-1 ?>>
         <br /><br />
         <label for="fecha">Mes: </label>
-        <input type="text" name="mes" id="m">
+        <input type="text" name="mes" id="m" value= <?= date("m") ?>>
         <br /><br />
         <label for="fecha">Anio: </label>
-        <input type="text" name="anio" id="a">
+        <input type="text" name="anio" id="a" value= <?= date("Y")  ?>>
         <br /><br />
         <input type="submit" value="ingresar venta">
 
@@ -56,6 +59,8 @@
         </table>
         <br /><br />
         <a href="../controllers/inicio.php">Volver</a>
+
+        <script> src="js/bootstrap.js"</script>
 </body>
 
 </html>
