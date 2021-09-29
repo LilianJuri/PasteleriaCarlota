@@ -19,6 +19,8 @@ class Usuarios extends Model
 		$password = $this->db->escape($password);
 		if (strlen($password) < 3 || strlen($password) > 10) throw new UsuariosException("Usuario fuera de rango");
 
+		$password = sha1($password);
+
 		$this->db->query("SELECT *
                           FROM usuarios
                           WHERE usuario = '$usuario' AND

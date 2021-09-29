@@ -10,62 +10,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../html/css/bs/css/bootstrap.css">
+    <link href="../html/css/menu.css" rel="stylesheet" type="text/css" />
 	<title>
 		Listado de productos
 	</title>
-
-
-	<style type="text/css">
-		table {
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 50%;
-		}
-
-		td,
-		th {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
-
-		tr:nth-child(even) {
-			background-color: #dddddd;
-		}
-	</style>
 </head>
 
 <body>
-	<h1>Listado de productos</h1>
 
+<div class="row justify-content-center">
+        <div class="col-sm-8 col-md-6" >
+            <div class="menu-vertical-productos" >
+				<h1>Listado de productos</h1>
+					<table class="tabla-productos">
+						<tr>
+							<th>Nombre</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
+							<th>Categoria</th>
+						</tr>
 
-	<table>
-		<tr>
-			<th>Nombre</th>
-			<th>Cantidad</th>
-			<th>Precio</th>
-			<th>Categoria</th>
-		</tr>
+					<?php foreach ($this->productos as $e) { ?>
+						<tr>
+							<td><a href="editarProducto.php?p=<?= $e['producto_id'] ?>"><?= $e['nombre_producto'] ?></a></td>
+							<td><?= $e['cantidad'] ?></td>
+							<td><?= $e['precio'] ?></td>
+							<td><?= $e['nombre_categoria'] ?></td>
+						</tr>
+					<?php } ?>
 
-		<?php foreach ($this->productos as $e) { ?>
-			<tr>
-				<td><a href="editarProducto.php?p=<?= $e['producto_id'] ?>"><?= $e['nombre_producto'] ?></a></td>
-				<td><?= $e['cantidad'] ?></td>
-				<td><?= $e['precio'] ?></td>
-				<td><?= $e['nombre_categoria'] ?></td>
-			</tr>
-		<?php } ?>
-
-	</table>
-	<br><br>
-	<a href="../controllers/Inicio.php">Volver</a>
-	<br><br>
-	<a href="../controllers/altaProducto.php">Agregar producto</a>
-	<br><br>
-	<a href="../controllers/eliminarProducto.php">Eliminar producto</a>
-
-	<script> src="js/bootstrap.js"</script>
+					</table>
+				<br><br>
+				<div class="links-menu">
+					<a href="../controllers/Inicio.php">Volver</a>
+					<a href="../controllers/altaProducto.php">Agregar producto</a>
+					<a href="../controllers/eliminarProducto.php">Eliminar producto</a>
+				</div>
+	    	</div>
+    	</div>
+</div>
+    <script> src="../html/css/bs/css/bootstrap.js"</script>
 
 </body>
 

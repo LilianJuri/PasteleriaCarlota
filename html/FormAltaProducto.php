@@ -8,8 +8,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../html/css/bs/css/bootstrap.css">
+    <link href="../html/css/menu.css" rel="stylesheet" type="text/css" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
     <title>
         Alta producto nuevo
     </title>
@@ -39,7 +40,7 @@
     <br />
     <br />
     <a href="../controllers/listaproductos.php">Volver</a>
-    <script> src="js/bootstrap.js"</script>
+    <script> src="../html/css/bs/css/bootstrap.js"</script>
 </body>
 
 </html>

@@ -15,15 +15,19 @@
 </head>
 
 <body>
-    <div class="menu-vertical">
-        <h1 id="titulo-menu">Menu principal</h1>
-            <a href="../controllers/listaproductos.php">Productos</a>
-            <a href="../controllers/listausuarios.php">Usuarios</a>
-            <a href="../controllers/altaVenta.php">Venta</a>
-            <a href="../controllers/logout.php">Cerrar sesion</a></
+    <div class="menu-vertical" >
+        <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6" >
+                <h1 class="titulo-menu">Menu principal</h1>
+                <a href="../controllers/listaproductos.php">Productos</a>
+                <a href="../controllers/listausuarios.php">Usuarios</a>
+                <a href="../controllers/altaVenta.php">Venta</a>
+                <a href="../controllers/logout.php">Cerrar sesion</a>
+            </div>
+        </div>
     </div>
 
-    <script> src="js/bootstrap.js"</script>
+    <script> src="../html/css/bs/css/bootstrap.js"</script>
 
 </body>
 
