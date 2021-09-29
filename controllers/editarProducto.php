@@ -20,6 +20,10 @@ if (isset($_POST['categoria'])) {
 
     $mp = new Productos();
 
+    if (!isset($_POST['nombre-producto'])) throw new EditarProductoException("No se ingreso nombre del producto");
+    if (!isset($_POST['cantidad'])) throw new EditarProductoException("No se ingreso cantidad del producto");
+    if (!isset($_POST['precio'])) throw new EditarProductoException("No se ingreso precio del producto");
+
     $mp->editarProducto($_POST['productoid'],$_POST['nombre-producto'],$_POST['categoria'], $_POST['cantidad'], $_POST['precio']);
 
     $v = new EditarProductoOk();
@@ -32,3 +36,5 @@ if (isset($_POST['categoria'])) {
 
 
 $v->render();
+
+class EditarProductoException extends Exception{}

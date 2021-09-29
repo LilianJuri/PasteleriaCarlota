@@ -20,7 +20,8 @@ $todos = $mdv->getTodos();
 
 if (isset($_POST['producto'])) {
 
-    if (!isset($_POST['cantidad'])) die("cantidad no ingresada");
+    if (!isset($_POST['cantidad'])) throw new AltaDetalleVentaException("cantidad no ingresada");
+    if (!isset($_POST['producto'])) throw new AltaDetalleVentaException("producto no ingresada");
 
     $md = new Ventas();
     $mp = new Productos();
@@ -33,7 +34,7 @@ if (isset($_POST['producto'])) {
 
     $stockdisponible = $mp->stockProducto($_POST['producto']);
 
-    if (($_POST['cantidad']) > $stockdisponible) die("stock insuficiente");
+    if (($_POST['cantidad']) > $stockdisponible) throw new AltaDetalleVentaException("stock insuficiente");
 
     $md->crearDetalleVenta($productoid, $ventaid, $preciop, $_POST['cantidad']);
 
@@ -44,3 +45,7 @@ if (isset($_POST['producto'])) {
 }
 
 $v->render();
+
+class AltaDetalleVentaException extends Exception{}
+
+?>

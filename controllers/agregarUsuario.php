@@ -15,16 +15,16 @@ require '../views/AltaUsuarioOK.php';
 
 if (isset($_POST['tipo-usuario'])) {
 
-    if (!isset($_POST['nombre-usuario'])) die("error validacion 2");
-    if (!isset($_POST['contrasenia'])) die("error validacion 3");
+    if (!isset($_POST['nombre-usuario'])) throw new AgregarUsuarioException("No se ingreso nombre de usuario");
+    if (!isset($_POST['contrasenia'])) throw new AgregarUsuarioException("No se ingreso contrasenia");
 
-    if (!($_POST['tipo-usuario'] == "admin" || $_POST['tipo-usuario'] == "comun")) die("nombre de tipo equivocado");
+    if (!($_POST['tipo-usuario'] == "admin" || $_POST['tipo-usuario'] == "comun")) throw new AgregarUsuarioException("nombre de tipo equivocado");
 
     $mu = new Usuarios();
 
     $usuarioaux = $_POST['nombre-usuario'];
 
-    if ($mu->existeUsuario($usuarioaux)) die('error exite el usuario');
+    if ($mu->existeUsuario($usuarioaux)) throw new AgregarUsuarioException("El usuario ingresado ya existe");
 
     $mu->crearUsuario($_POST['tipo-usuario'], $_POST['nombre-usuario'], $_POST['contrasenia']);
 
@@ -35,3 +35,5 @@ if (isset($_POST['tipo-usuario'])) {
 
 
 $v->render();
+
+class AgregarUsuarioException extends Exception{}

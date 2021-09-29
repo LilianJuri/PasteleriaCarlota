@@ -11,7 +11,10 @@ session_start();
 $v = new FormInicioSesion();
 
 if (isset($_POST['usuario'])) {
-    if (!isset($_POST['passwd'])) die("error ingrese su contraseña.");
+
+    if (!isset($_POST['usuario'])) throw new InicioSesionException("error ingrese su usuario");
+    if (!isset($_POST['passwd'])) throw new InicioSesionException("error ingrese su contraseña");
+
     if ((new Usuarios)->validarInicioSesion($_POST['usuario'], $_POST['passwd'])) {
 
         $_SESSION['logueado'] = true;
@@ -29,3 +32,6 @@ if (isset($_POST['usuario'])) {
 
 
 $v->render();
+
+class InicioSesionException extends Exception{}
+

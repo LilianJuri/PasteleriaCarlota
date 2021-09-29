@@ -17,15 +17,16 @@ $m = new Categorias();
 
 if (isset($_POST['categoria'])) {
 
-    if (!isset($_POST['nombre-producto'])) die("error validacion 2");
-    if (!isset($_POST['cantidad'])) die("error validacion 3");
-    if (!isset($_POST['precio'])) die("error validacion 4");
+    if (!isset($_POST['nombre-producto'])) throw new AltaProductoException("No se ingreso nombre del producto");
+    if (!isset($_POST['cantidad'])) throw new AltaProductoException("No se ingreso cantidad del producto");
+    if (!isset($_POST['precio'])) throw new AltaProductoException("No se ingreso precio del producto");
 
     $mp = new Productos();
 
     $productoaux = $_POST['nombre-producto'];
 
-    if ($mp->existeProducto($productoaux)) die('error exite el producto');
+    if ($mp->existeProducto($productoaux)) throw new AltaProductoException("error exite el producto");
+    
 
     $mp->crearProducto($_POST['categoria'], $_POST['nombre-producto'], $_POST['cantidad'], $_POST['precio']);
 
@@ -35,5 +36,8 @@ if (isset($_POST['categoria'])) {
     $v->categorias = $m->getTodos();
 }
 
-
 $v->render();
+
+class AltaProductoException extends Exception{}
+
+?>

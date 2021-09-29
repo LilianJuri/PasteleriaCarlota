@@ -19,9 +19,9 @@ $todos = $mdv->getTodosDetalle();
 
 if (isset($_POST['dia'])) {
 
-    if (!isset($_POST['dia'])) die("dia no ingresado");
-    if (!isset($_POST['mes'])) die("mes no ingresado");
-    if (!isset($_POST['anio'])) die("anio no ingresado");
+    if (!isset($_POST['dia'])) throw new AltaVentaException("dia no ingresado");
+    if (!isset($_POST['mes'])) throw new AltaVentaException("mes no ingresado");
+    if (!isset($_POST['anio'])) throw new AltaVentaException("anio no ingresado");
 
     $mv = new Ventas();
 
@@ -36,3 +36,5 @@ if (isset($_POST['dia'])) {
 }
 
 $v->render();
+
+class AltaVentaException extends Exception{}

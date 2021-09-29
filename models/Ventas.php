@@ -7,22 +7,20 @@ class Ventas extends Model
 
     public function crearVenta($usuarion, $d, $m, $a)
     {
-        $usuarion = $this->db->escapeWildcards($usuarion);
-        if (strlen($usuarion) < 3 || strlen($usuarion) > 10) die("Usuario fuera de rango");
+        $usuarion = $this->db->escape($usuarion);
+        if (strlen($usuarion) < 3 || strlen($usuarion) > 10) throw new VentasException("Usuario fuera de rango");
 
-        if (!ctype_digit($d)) die("el dia no es un numero");
-        if ($d < 1) die("el dia es menor a 1");
-        if ($d > 31) die("el dia es mayor a 1");
+        if (!ctype_digit($d)) throw new VentasException("el dia no es un numero");
+        if ($d < 1) throw new VentasException("el dia es menor a 1");
+        if ($d > 31) throw new VentasException("el dia es mayor a 1");
 
+        if (!ctype_digit($m)) throw new VentasException("el mes no es un numero");
+        if ($m < 1) throw new VentasException("el mes es menor a 1");
+        if ($m > 12) throw new VentasException("el mes es mayor a 12");
 
-        if (!ctype_digit($m)) die("el mes no es un numero");
-        if ($m < 1) die("el mes es menor a 1");
-        if ($m > 12) die("el mes es mayor a 12");
-
-
-        if (!ctype_digit($a)) die("el anio no es un numero");
-        if ($a > date("Y")) die("el anio es mayor al existente");
-        if ($a < (date("Y") - 1)) die("rango no permitido de anio");
+        if (!ctype_digit($a)) throw new VentasException("el anio no es un numero");
+        if ($a > date("Y")) throw new VentasException("el anio es mayor al existente");
+        if ($a < (date("Y") - 1)) throw new VentasException("rango no permitido de anio");
 
         if (!checkdate($m, $d, $a)) die("fecha no existente");
 
@@ -54,17 +52,17 @@ class Ventas extends Model
 
     public function crearDetalleVenta($productoid, $ventaid, $precio, $cantidad)
     {
-        if (!ctype_digit($cantidad)) die("la cantidad no es un numero");
-        if ($cantidad <= 0 || $cantidad >= 1000) die("La cantidad esta fuera de rango 0< 1000");
+        if (!ctype_digit($cantidad)) throw new VentasException("la cantidad no es un numero");
+        if ($cantidad <= 0 || $cantidad >= 1000) throw new VentasException("La cantidad esta fuera de rango 0< 1000");
 
-        if (!ctype_digit($productoid)) die("El id no es un numero entero");
-        if ($productoid < 1) die("el id tiene que ser mayor a 1");
+        if (!ctype_digit($productoid)) throw new VentasException("El id no es un numero entero");
+        if ($productoid < 1) throw new VentasException("el id tiene que ser mayor a 1");
 
-        if (!ctype_digit($ventaid)) die("El id no es un numero entero");
-        if ($ventaid < 1) die("el id tiene que ser mayor a 1");
+        if (!ctype_digit($ventaid)) throw new VentasException("El id no es un numero entero");
+        if ($ventaid < 1) throw new VentasException("el id tiene que ser mayor a 1");
 
-        if (!is_numeric($precio)) die("el precio no es un numero valido");
-        if ($cantidad <= 0 || $cantidad >= 10000) die("El precio esta fuera de rango 0< 20000");
+        if (!is_numeric($precio)) throw new VentasException("el precio no es un numero valido");
+        if ($cantidad <= 0 || $cantidad >= 10000) throw new VentasException("El precio esta fuera de rango 0< 20000");
 
         $this->db->query("INSERT INTO detalle_venta
 		                    (producto_id, venta_id, precio, cantidad) VALUES
@@ -95,3 +93,5 @@ class Ventas extends Model
                           WHERE venta_id = ($idventaeliminar) ");
     }
 }
+
+class VentasException extends Exception{}
