@@ -40,16 +40,6 @@ background-image: url("\html\css\img\patternpasteleriacarlotabackgound.svg");
     background-color: #FFC829;
 }
 
-
-.tabla-productos{
-    background-color: hsl(19, 100%, 58%); 
-    font-family: arial, sans-serif;
-	border-collapse: collapse;
-    margin:auto;
-    height: 200px;
-    overflow: scroll;
-}
-
 .tabla-productos td,th {
 			border: 1px solid #FF8129;
 			padding: 8px;
@@ -89,4 +79,16 @@ background-image: url("\html\css\img\patternpasteleriacarlotabackgound.svg");
 
 .links-menu a:hover{
     background-color: #FFC829;
+}
+
+.tabla-productos{
+    background-color: hsl(19, 100%, 58%); 
+    font-family: arial, sans-serif;
+	border-collapse: collapse;
+    height: 400px;
+    width: 470px;
+    overflow-y: scroll;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
