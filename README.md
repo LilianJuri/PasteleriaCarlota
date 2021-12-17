@@ -5,9 +5,9 @@ In the sales module, sales are registered by date and new sales can be added, de
 The stock module is where the store's products are stored, in addition to being able to edit, delete and add new products.
 
 # Technologies used in the project
--HTML
--CSS
--JavaScript
--PHP
--MySql
-BootStrap
+-HTML </br>
+-CSS </br>
+-JavaScript </br>
+-PHP </br>
+-MySql </br>
+-BootStrap
