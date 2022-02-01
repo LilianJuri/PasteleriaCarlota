@@ -16,8 +16,8 @@
 <div class="row justify-content-center">
         <div class="col-sm-8 col-md-6" >
             <div class="menu-vertical-productos" >
-            <h1>La venta fue cancelada con exito</h1>
-            <div class="links-menu">
+                <h1>La venta fue cancelada con exito</h1>
+                <div class="links-menu">
                 <a href="../controllers/inicio.php">volver al menu</a>
                 <a href="../controllers/altaVenta.php">cargar nueva venta</a>
             </div>
